@@ -1,0 +1,13 @@
+# ninja log v6
+4	44	1720366036917068905	lib/CMakeFiles/Parse.dir/Parser.cpp.o	34fa8c3ff96d3c73
+44	75	1720366036956862173	lib/libParse.a	8e40d0b302bf87d2
+4	322	1720366036917500550	bin/CMakeFiles/PrintFile.dir/main.cpp.o	3f8f556aa52c3e9d
+322	357	1720366037235020530	bin/PrintFile	19e6862d0b53aef9
+4	41	1720366794945336149	lib/CMakeFiles/Parse.dir/Printer.cpp.o	496d1cf0be635c0e
+4	42	1720366794944874878	lib/CMakeFiles/Parse.dir/Parser.cpp.o	34fa8c3ff96d3c73
+42	71	1720366794982837266	lib/libParse.a	b0667bfd6d0a1e1c
+4	44	1720366971039921128	lib/CMakeFiles/Parse.dir/Parser.cpp.o	34fa8c3ff96d3c73
+5	44	1720366971041411686	lib/CMakeFiles/Parse.dir/Printer.cpp.o	496d1cf0be635c0e
+44	74	1720366971080147998	lib/libParse.a	b0667bfd6d0a1e1c
+6	317	1720366971041683258	bin/CMakeFiles/PrintFile.dir/main.cpp.o	3f8f556aa52c3e9d
+317	353	1720366971352828696	bin/PrintFile	19e6862d0b53aef9
