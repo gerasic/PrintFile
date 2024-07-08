@@ -1,8 +1,0 @@
-/Users/nikitagerasimov/MyProjects/PrintFile/build/CMakeFiles/edit_cache.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/CMakeFiles/rebuild_cache.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/lib/CMakeFiles/Parse.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/lib/CMakeFiles/edit_cache.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/lib/CMakeFiles/rebuild_cache.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/bin/CMakeFiles/PrintFile.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/bin/CMakeFiles/edit_cache.dir
-/Users/nikitagerasimov/MyProjects/PrintFile/build/bin/CMakeFiles/rebuild_cache.dir
