@@ -6,7 +6,10 @@
 
 int main(int argc, char** argv) {
     Parser parser(argc, argv);
-    Printer printer(parser.Parse());
+    Options opt = parser.Parse();
+    opt.Print();
+
+    Printer printer(opt);
     printer.Print();
 
     return 0;
