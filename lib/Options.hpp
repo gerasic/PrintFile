@@ -29,7 +29,7 @@ struct Options {
         } else if (delimiter == '\f') {
             std::cout << "\\f" << "\n";
         } else {
-            std::cout << "undefined" << "\n";
+            std::cout << delimiter << "\n";
         }
     }
 };

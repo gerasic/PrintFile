@@ -12,6 +12,7 @@ private:
     void ProcessShortArgument(const std::string_view& argument, int& i);
     void ProcessLongArgument(const std::string_view& argument);
 
+    char GetDelimiter(const std::string_view& delim);
     char ConvertToEscapeSubseq(const std::string_view& subseq);
     int ConvertSubstringToInt(const std::string_view& digit);
 };

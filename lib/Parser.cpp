@@ -20,7 +20,8 @@ Options Parser::Parse() {
         } else if (argument.starts_with("-")) {
             ProcessShortArgument(argument, i);
         } else if (opt_.filename.empty()) {
-            opt_.filename = argument;
+            opt_.filename = "../../files/";
+            opt_.filename += argument;
         } else {
             throw std::invalid_argument("Undefined argument: \"" + std::string(argument) + "\".");
         }
@@ -43,7 +44,7 @@ void Parser::ProcessLongArgument(const std::string_view& argument) {
     } else if (argument.starts_with("--lines=")) {
         opt_.lines = ConvertSubstringToInt(argument.substr(kLinesArgumentEqualSignPosition));
     } else if (argument.starts_with("--delimiter=")) {
-        opt_.delimiter = ConvertToEscapeSubseq(argument.substr(kDelimiterArgumentEqualSignPosition));
+        opt_.delimiter = GetDelimiter(argument.substr(kDelimiterArgumentEqualSignPosition));
     } else {
         throw std::invalid_argument("Error with parsing argument: \"" + std::string(argument) + "\".");
     }
@@ -59,17 +60,26 @@ void Parser::ProcessShortArgument(const std::string_view& argument, int& i) {
         if (i + 1 >= argc_) {
             throw std::invalid_argument("Missing value for argument -d");
         }
-        opt_.delimiter = ConvertToEscapeSubseq(argv_[++i]);
+        opt_.delimiter = GetDelimiter(argv_[++i]);
     } else if (argument == "-t") {
         opt_.tail = !opt_.tail;
     } else {
-        throw std::invalid_argument("Invalid argument! Try --help.");
+        throw std::invalid_argument("Invalid argument!");
     }
 }
 
+char Parser::GetDelimiter(const std::string_view& delim) {
+    if (delim[0] == '\\') {
+        return ConvertToEscapeSubseq(delim);
+    } else if (delim.size() == 1) {
+        return delim[0];
+    } else {
+        throw std::invalid_argument("\"" + std::string(delim) + "\" " + "have size more than 1 symbol!");
+    }
+}
 
 char Parser::ConvertToEscapeSubseq(const std::string_view& subseq) {
-    if (subseq.empty() || subseq[0] != '\\') {
+    if (subseq.empty()) {
         throw std::invalid_argument("Subsequence \"" + std::string(subseq) + "\" is not an escape subsequence symbol.");
     }
 
@@ -86,8 +96,12 @@ char Parser::ConvertToEscapeSubseq(const std::string_view& subseq) {
 }
 
 int Parser::ConvertSubstringToInt(const std::string_view& digit) {
+    if (digit[0] == '-') {
+        throw std::invalid_argument(std::string(digit) + " is a negative number!");
+    }
+
     try {
-        return std::stoi(std::string(digit));
+        return std::stoull(std::string(digit));
     } catch (const std::invalid_argument& e) {
         throw std::invalid_argument(std::string(digit) + " is not a valid number!");
     } catch (const std::out_of_range& e) {
